@@ -1,0 +1,2 @@
+include ':app', ':libraryTest', ':EDC-sdk-debug'
+//project( ':libraryTest' ).projectDir = new File(settingsDir, 'libbaa.arr' )
