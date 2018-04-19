@@ -1,15 +1,5 @@
 
 apply plugin: 'com.android.application'
-import org.ajoberstar.grgit.*
-task clone << {
-    File dir = new File('contrib/dependency')
-    if(!dir.exists()) {
-        def grgit = Grgit.clone(dir: dir, uri: 'https://github.com/tententen2/testjitPack.git', refToCheckout: 'master')
-    }
-    def grgit = Grgit.open(dir)
-    grgit.checkout(branch: 'master')
-    grgit.pull(rebase: false)
-}
 android {
     compileSdkVersion 27
     defaultConfig {
