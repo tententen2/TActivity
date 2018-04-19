@@ -4,12 +4,18 @@ apply plugin: 'groovyx.android'
 
 android {
     compileSdkVersion 27
+    buildToolsVersion '27.0.3'
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
     defaultConfig {
         applicationId "com.example.jirawatpoo.myapplication"
         minSdkVersion 21
         targetSdkVersion 27
         versionCode 1
         versionName "1.0"
+        multiDexEnabled true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -26,25 +32,19 @@ task batchTask(type: JavaExec) {
 
     new GroovyShell().run(file('myscript.groovy'))
 }
-//task runScript (type: Exec) {
-//    commandLine  'groovy', 'myscript.groovy'// it's good idea to take the script path from env variable
-//}
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     //    compile(name:'TrueyouSeller', ext:'aar')
-    implementation 'com.android.support:appcompat-v7:27.0.2'
-    implementation 'org.codehaus.groovy:groovy:2.4.12:grooid'
+//    implementation 'com.google.guava:guava:23.3-android'
+
+    implementation 'com.android.support:appcompat-v7:27.1.1'
+    implementation 'org.codehaus.groovy:groovy:2.3.0'
+    implementation 'com.android.support:multidex:1.0.1'
 
 
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
-//    implementation 'com.eggdigital.edcsdk:EDC-sdk:0.0.8'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
-//    implementation(name:'contrib/dependency/testlib-debug', ext:'aar')
 
-//    implementation project(':contrib/dependency/testlib-debug')
-//    implementation project(':TrueyouSeller')
-//    implementation project(':CordovaLib-debug')
-//    implementation project(':libraryTest')
 }

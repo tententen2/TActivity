@@ -5,14 +5,11 @@ buildscript {
         google()
         jcenter()
         mavenCentral()
-        maven {
-            url 'https://dl.bintray.com/tententen3/EDCSDK-Android'
-        }
+        maven { url 'https://maven.google.com' }
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.1.0'
         classpath 'org.codehaus.groovy:groovy-android-gradle-plugin:2.0.0'
-        classpath 'org.ajoberstar:gradle-git:1.7.2'
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -45,12 +42,7 @@ allprojects {
         google()
         jcenter()
         mavenCentral()
-        flatDir {
-            dirs 'libs'
-        }
-        maven {
-            url 'https://dl.bintray.com/tententen3/EDCSDK-Android'
-        }
+        maven { url 'https://maven.google.com' }
     }
 }
 
