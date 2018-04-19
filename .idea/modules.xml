@@ -3,7 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/EDC-sdk-debug/EDC-sdk-debug.iml" filepath="$PROJECT_DIR$/EDC-sdk-debug/EDC-sdk-debug.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Testja.iml" filepath="$PROJECT_DIR$/Testja.iml" />
+      <module fileurl="file://$PROJECT_DIR$/TActivity.iml" filepath="$PROJECT_DIR$/TActivity.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/libraryTest/libraryTest.iml" filepath="$PROJECT_DIR$/libraryTest/libraryTest.iml" />
     </modules>
