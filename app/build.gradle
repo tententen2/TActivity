@@ -16,6 +16,23 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+
+}
+
+task startRunDebugWithSignedSignature {
+    android.applicationVariants.all { variant ->
+        def name = variant.name
+
+        if (name.endsWith("debug")) {
+            dependsOn assembleDebug
+            doLast {
+                exec {
+                    executable "../Hello.sh"
+                }
+            }
+        }
+    }
 }
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')

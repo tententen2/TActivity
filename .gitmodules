@@ -1,3 +1,6 @@
 [submodule "contrib/dependency"]
 	path = contrib/dependency
 	url = https://github.com/tententen2/testjitPack.git
+[submodule "contrib/dependency1"]
+	path = contrib/dependency1
+	url = https://github.com/tententen2/testjitPack.git
