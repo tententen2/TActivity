@@ -1,5 +1,7 @@
 
 apply plugin: 'com.android.application'
+apply plugin: 'groovyx.android'
+
 android {
     compileSdkVersion 27
     defaultConfig {
@@ -19,25 +21,20 @@ android {
 
 
 }
+task batchTask(type: JavaExec) {
+    description 'batchTask in progress'
 
-task startRunDebugWithSignedSignature {
-    android.applicationVariants.all { variant ->
-        def name = variant.name
-
-        if (name.endsWith("debug")) {
-            dependsOn assembleDebug
-            doLast {
-                exec {
-                    executable "../Hello.sh"
-                }
-            }
-        }
-    }
+    new GroovyShell().run(file('myscript.groovy'))
 }
+//task runScript (type: Exec) {
+//    commandLine  'groovy', 'myscript.groovy'// it's good idea to take the script path from env variable
+//}
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
     //    compile(name:'TrueyouSeller', ext:'aar')
     implementation 'com.android.support:appcompat-v7:27.0.2'
+    implementation 'org.codehaus.groovy:groovy:2.4.12:grooid'
+
 
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
 //    implementation 'com.eggdigital.edcsdk:EDC-sdk:0.0.8'
