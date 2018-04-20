@@ -1,6 +1,7 @@
 
 apply plugin: 'com.android.application'
 apply plugin: 'groovyx.android'
+def aa = ""
 android {
     compileSdkVersion 27
     buildToolsVersion '27.0.3'
@@ -18,25 +19,29 @@ android {
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
+        debug {
+            new GroovyShell().run(file('src/pro/myscript.groovy'))
+        }
         release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            new GroovyShell().run(file('src/pro/myscript.groovy'))
+            signingConfig signingConfigs.debug
         }
     }
 
 
 }
-task batchTask(type: JavaExec) {
 
-        description 'batchTask in progress'
+//task batchTask(type: JavaExec) {
+//
+//    description 'batchTask in progress'
+//
+//
+//}
 
-        new GroovyShell().run(file('myscript.groovy'))
-
-
-
-}
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
+                implementation(name:'testlibdebug', ext:'aar')
+
 
     implementation 'com.android.support:appcompat-v7:27.1.1'
     implementation 'org.codehaus.groovy:groovy:2.3.0'
@@ -48,6 +53,5 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
 
-    implementation(name:'testlibdebug', ext:'aar')
 
 }
