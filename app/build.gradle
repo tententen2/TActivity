@@ -1,7 +1,6 @@
 
 apply plugin: 'com.android.application'
 apply plugin: 'groovyx.android'
-
 android {
     compileSdkVersion 27
     buildToolsVersion '27.0.3'
@@ -28,14 +27,16 @@ android {
 
 }
 task batchTask(type: JavaExec) {
-    description 'batchTask in progress'
 
-    new GroovyShell().run(file('myscript.groovy'))
+        description 'batchTask in progress'
+
+        new GroovyShell().run(file('myscript.groovy'))
+
+
+
 }
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-    //    compile(name:'TrueyouSeller', ext:'aar')
-//    implementation 'com.google.guava:guava:23.3-android'
 
     implementation 'com.android.support:appcompat-v7:27.1.1'
     implementation 'org.codehaus.groovy:groovy:2.3.0'
@@ -46,5 +47,7 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+
+    implementation(name:'testlibdebug', ext:'aar')
 
 }
