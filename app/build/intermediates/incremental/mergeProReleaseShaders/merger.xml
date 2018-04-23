@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main"><source path="/Users/jirawat.poo/eggwork/TActivity/app/src/main/shaders"/></dataSet><dataSet config="pro"><source path="/Users/jirawat.poo/eggwork/TActivity/app/src/pro/shaders"/></dataSet><dataSet config="release"><source path="/Users/jirawat.poo/eggwork/TActivity/app/src/release/shaders"/></dataSet><dataSet config="proRelease"><source path="/Users/jirawat.poo/eggwork/TActivity/app/src/proRelease/shaders"/></dataSet></merger>

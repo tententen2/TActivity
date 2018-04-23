@@ -1,0 +1,1 @@
+[{"outputType":{"type":"INSTANT_RUN_MERGED_MANIFESTS"},"apkInfo":{"type":"MAIN","splits":[],"versionCode":1,"versionName":"dev","enabled":true,"outputFile":"app-pro-debug.apk","fullName":"proDebug","baseName":"pro-debug"},"path":"AndroidManifest.xml","properties":{"packageId":"com.example.jirawatpoo.myapplication","split":"","minSdkVersion":"21"}}]

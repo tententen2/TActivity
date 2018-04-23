@@ -1,3 +1,4 @@
 [submodule "contrib/dependency"]
 	path = contrib/dependency
 	url = https://github.com/tententen2/testjitPack.git
+	branch = master

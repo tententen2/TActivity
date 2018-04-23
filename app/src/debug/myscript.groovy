@@ -1,0 +1,6 @@
+//"cd ../..".execute().waitFor()
+//"git rm contrib/dependency".execute().waitFor()
+//"rm -rf contrib".execute().waitFor()
+//"rm -rf contrib/dependency".execute().waitFor()
+"git config --file=.gitmodules submodule.contrib/dependency.branch develop".execute().waitFor()
+"git submodule update --remote".execute().waitFor()

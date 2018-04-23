@@ -1,0 +1,1 @@
+[{"outputType":{"type":"INSTANT_RUN_MERGED_MANIFESTS"},"apkInfo":{"type":"MAIN","splits":[],"versionCode":1,"versionName":"dev","enabled":true,"outputFile":"app-stg-release.apk","fullName":"stgRelease","baseName":"stg-release"},"path":"AndroidManifest.xml","properties":{"packageId":"com.example.jirawatpoo.myapplication","split":"","minSdkVersion":"21"}}]

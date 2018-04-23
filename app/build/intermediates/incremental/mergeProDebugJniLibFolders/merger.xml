@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merger version="3"><dataSet config="main"><source path="/Users/jirawat.poo/eggwork/TActivity/app/src/main/jniLibs"/></dataSet><dataSet config="pro"><source path="/Users/jirawat.poo/eggwork/TActivity/app/src/pro/jniLibs"/></dataSet><dataSet config="debug"><source path="/Users/jirawat.poo/eggwork/TActivity/app/src/debug/jniLibs"/></dataSet><dataSet config="proDebug"><source path="/Users/jirawat.poo/eggwork/TActivity/app/src/proDebug/jniLibs"/></dataSet></merger>

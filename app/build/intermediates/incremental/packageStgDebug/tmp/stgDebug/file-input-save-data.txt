@@ -1,0 +1,11 @@
+#Internal package file, do not edit.
+#Sun Apr 22 00:20:55 ICT 2018
+1.base=/Users/jirawat.poo/eggwork/TActivity/app/build/intermediates/transforms/dexMerger/stg/debug/1
+0.baseType=DIRECTORY
+1.baseType=DIRECTORY
+count=2
+1.set=DEX
+0.path=classes.dex
+0.set=DEX
+0.base=/Users/jirawat.poo/eggwork/TActivity/app/build/intermediates/transforms/dexMerger/stg/debug/0
+1.path=classes.dex

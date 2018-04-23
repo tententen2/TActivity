@@ -1,8 +1,13 @@
 
 apply plugin: 'com.android.application'
 apply plugin: 'groovyx.android'
-def aa = ""
+import java.util.regex.Matcher
+import java.util.regex.Pattern
+def buildTypen // define here to update in loop
+
 android {
+    flavorDimensions "tier"
+
     compileSdkVersion 27
     buildToolsVersion '27.0.3'
     compileOptions {
@@ -14,44 +19,85 @@ android {
         minSdkVersion 21
         targetSdkVersion 27
         versionCode 1
-        versionName "1.0"
+        versionName "dev"
         multiDexEnabled true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+
     buildTypes {
+
         debug {
-            new GroovyShell().run(file('src/pro/myscript.groovy'))
+//            buildTypen = "stg"
+//            versionName "dev"
+
+//            new GroovyShell().run(file('src/dev/myscript.groovy'))
         }
         release {
-            new GroovyShell().run(file('src/pro/myscript.groovy'))
+//            buildTypen = "pro"
+//            versionName "pro"
+
+
+
+//            new GroovyShell().run(file('src/pro/myscript.groovy'))
             signingConfig signingConfigs.debug
         }
+
+    }
+    productFlavors {
+        stg {
+            dimension "tier"
+//            buildTypen "debug"
+        }
+        pro {
+            dimension "tier"
+//            buildTypen "release"
+
+        }
+    }
+
+}
+
+task batchTask(type: JavaExec) {
+    Gradle gradle = getGradle()
+    String taskReqStr = gradle.getStartParameter().getTaskRequests().toString()
+    String buildType
+    Pattern pattern
+    if (taskReqStr.contains("assemble")) {
+        pattern = Pattern.compile("assemble(\\w+)(Release|Debug)")
+    } else {
+        pattern = Pattern.compile("generate(\\w+)(Release|Debug)")
+    }
+    Matcher matcher = pattern.matcher(taskReqStr)
+    if (matcher.find()) {
+        buildType = matcher.group(2)
+        char[] c = buildType.toCharArray()
+        c[0] = Character.toLowerCase(c[0])
+        buildType = new String(c)
+        new GroovyShell().run(file("src/${buildType}/myscript.groovy"))
+        return buildType
+    }else if(taskReqStr.contains("Release")){
+        buildType = "release"
+        new GroovyShell().run(file("src/${buildType}/myscript.groovy"))
+        return buildType
+    }else if(taskReqStr.contains("Debug")){
+        buildType = "debug"
+        new GroovyShell().run(file("src/${buildType}/myscript.groovy"))
+        return buildType
     }
 
 
 }
 
-//task batchTask(type: JavaExec) {
-//
-//    description 'batchTask in progress'
-//
-//
-//}
+
 
 dependencies {
     implementation fileTree(include: ['*.jar'], dir: 'libs')
-                implementation(name:'testlibdebug', ext:'aar')
-
-
+    //                implementation(name:'testlibdebug', ext:'aar')
     implementation 'com.android.support:appcompat-v7:27.1.1'
     implementation 'org.codehaus.groovy:groovy:2.3.0'
     implementation 'com.android.support:multidex:1.0.1'
-
-
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.1'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
-
-
 }
